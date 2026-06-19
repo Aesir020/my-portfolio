@@ -211,9 +211,6 @@ function Nav() {
               {l}
             </a>
           ))}
-          <a href="#contact" className="text-sm bg-orange-500 hover:bg-orange-400 text-white px-4 py-2 rounded font-medium transition-colors">
-            Hire Me
-          </a>
         </div>
         <button className="md:hidden text-gray-400" onClick={() => setOpen(!open)}>
           {open ? <XIcon /> : <MenuIcon />}
@@ -226,9 +223,6 @@ function Nav() {
               {l}
             </a>
           ))}
-          <a href="#contact" onClick={() => setOpen(false)} className="text-sm bg-orange-500 text-white px-4 py-2 rounded font-medium text-center">
-            Hire Me
-          </a>
         </div>
       )}
     </nav>
@@ -249,9 +243,8 @@ function Hero() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-orange-500/5 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-4xl mx-auto px-6 pt-24 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-mono tracking-widest uppercase">
-          <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
-          Available for internships &amp; collaborations
+        <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-gray-700 bg-gray-900 text-gray-400 text-xs font-mono tracking-widest uppercase">
+          Maker Portfolio · {new Date().getFullYear()}
         </div>
 
         <h1 className="text-5xl md:text-7xl font-black text-white leading-none tracking-tight mb-4">
@@ -261,11 +254,11 @@ function Hero() {
         <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10">{bio}</p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-          <a href={cta.hire} className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-semibold px-6 py-3 rounded-lg transition-all hover:shadow-lg hover:shadow-orange-500/25">
-            Hire Me
-          </a>
-          <a href={cta.portfolio} className="inline-flex items-center gap-2 border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-medium px-6 py-3 rounded-lg transition-colors">
+          <a href="#projects" className="inline-flex items-center gap-2 border border-gray-700 hover:border-orange-500/50 text-gray-300 hover:text-white font-medium px-6 py-3 rounded-lg transition-colors">
             View Projects
+          </a>
+          <a href="#about" className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-300 font-medium px-6 py-3 rounded-lg transition-colors">
+            About Me
           </a>
         </div>
 
@@ -503,111 +496,51 @@ function About() {
 // ── Contact ─────────────────────────────────────────────────
 function Contact() {
   const { email, phone, location, socials } = portfolioData;
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Replace with your form backend (Formspree, EmailJS, etc.)
-    setSent(true);
-  };
 
   return (
     <section id="contact" className="py-24 bg-gray-900">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-12">
-          <p className="text-orange-400 font-mono text-sm uppercase tracking-widest mb-2">Get in touch</p>
-          <h2 className="text-4xl font-black text-white">Contact</h2>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Info */}
-          <div>
-            <p className="text-gray-400 text-lg leading-relaxed mb-8">
-              Open to internships, research collaborations, and interesting builds.
-              Drop a message and I'll get back to you.
-            </p>
-            <div className="space-y-4 mb-8">
-              {[
-                { icon: <MailIcon />, label: "Email", value: email, href: `mailto:${email}` },
-                { icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z" />
-                  </svg>
-                ), label: "Phone", value: phone, href: `tel:${phone}` },
-                { icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
-                  </svg>
-                ), label: "Location", value: location, href: null },
-              ].map(({ icon, label, value, href }) => (
-                <div key={label} className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center text-orange-400">
-                    {icon}
-                  </div>
-                  <div>
-                    <p className="text-gray-500 text-xs uppercase tracking-wide">{label}</p>
-                    {href ? (
-                      <a href={href} className="text-white hover:text-orange-400 transition-colors text-sm">{value}</a>
-                    ) : (
-                      <p className="text-white text-sm">{value}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="flex gap-3">
-              {socials.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-700 hover:border-orange-500/50 text-gray-500 hover:text-orange-400 transition-all">
-                  <SocialIcon icon={s.icon} />
-                </a>
-              ))}
-            </div>
-          </div>
+      <div className="max-w-3xl mx-auto px-6 text-center">
+        <p className="text-orange-400 font-mono text-sm uppercase tracking-widest mb-2">Reach out</p>
+        <h2 className="text-4xl font-black text-white mb-4">Contact</h2>
+        <p className="text-gray-400 text-base leading-relaxed mb-12">
+          Questions about any of these projects? Feel free to reach out directly.
+        </p>
 
-          {/* Form */}
-          {sent ? (
-            <div className="flex flex-col items-center justify-center bg-gray-950 border border-gray-800 rounded-xl p-10 text-center">
-              <div className="w-14 h-14 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-400 mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-7 h-7">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          {[
+            { icon: <MailIcon />, label: "Email", value: email, href: `mailto:${email}` },
+            { icon: (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z" />
+              </svg>
+            ), label: "Phone", value: phone, href: `tel:${phone}` },
+            { icon: (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
+              </svg>
+            ), label: "Location", value: location, href: null },
+          ].map(({ icon, label, value, href }) => (
+            <div key={label} className="flex items-center gap-3 bg-gray-950 border border-gray-800 rounded-xl px-5 py-4">
+              <div className="text-orange-400">{icon}</div>
+              <div className="text-left">
+                <p className="text-gray-500 text-xs uppercase tracking-wide">{label}</p>
+                {href ? (
+                  <a href={href} className="text-white hover:text-orange-400 transition-colors text-sm">{value}</a>
+                ) : (
+                  <p className="text-white text-sm">{value}</p>
+                )}
               </div>
-              <h3 className="text-white font-bold text-lg mb-2">Message sent!</h3>
-              <p className="text-gray-400 text-sm">I'll get back to you soon.</p>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="bg-gray-950 border border-gray-800 rounded-xl p-6 space-y-4">
-              <div>
-                <label className="block text-gray-400 text-xs uppercase tracking-wide mb-1.5">Name</label>
-                <input
-                  type="text" required placeholder="Your name"
-                  value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-gray-900 border border-gray-700 focus:border-orange-500 text-white rounded-lg px-4 py-2.5 text-sm outline-none transition-colors placeholder-gray-600"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-400 text-xs uppercase tracking-wide mb-1.5">Email</label>
-                <input
-                  type="email" required placeholder="your@email.com"
-                  value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full bg-gray-900 border border-gray-700 focus:border-orange-500 text-white rounded-lg px-4 py-2.5 text-sm outline-none transition-colors placeholder-gray-600"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-400 text-xs uppercase tracking-wide mb-1.5">Message</label>
-                <textarea
-                  required rows={5} placeholder="What are you working on?"
-                  value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-gray-900 border border-gray-700 focus:border-orange-500 text-white rounded-lg px-4 py-2.5 text-sm outline-none transition-colors resize-none placeholder-gray-600"
-                />
-              </div>
-              <button type="submit"
-                className="w-full bg-orange-500 hover:bg-orange-400 text-white font-semibold py-3 rounded-lg transition-colors">
-                Send Message
-              </button>
-            </form>
-          )}
+          ))}
+        </div>
+
+        <div className="flex items-center justify-center gap-3">
+          {socials.map((s) => (
+            <a key={s.label} href={s.href} target="_blank" rel="noreferrer"
+              className="w-11 h-11 flex items-center justify-center rounded-lg border border-gray-700 hover:border-orange-500/50 text-gray-500 hover:text-orange-400 transition-all">
+              <SocialIcon icon={s.icon} />
+            </a>
+          ))}
         </div>
       </div>
     </section>
@@ -620,7 +553,7 @@ function Footer() {
     <footer className="bg-gray-950 border-t border-gray-800 py-8">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-600 text-sm">
         <span className="font-mono text-orange-400 font-bold">AC.</span>
-        <span>© {new Date().getFullYear()} {portfolioData.name} · Built with React &amp; Tailwind</span>
+        <span>© {new Date().getFullYear()} {portfolioData.name} · Mechanical Engineering @ UIUC</span>
         <a href="#hero" className="hover:text-white transition-colors">↑ Back to top</a>
       </div>
     </footer>
