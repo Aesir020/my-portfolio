@@ -31,7 +31,7 @@ const portfolioData = {
       category: "Controls",
       date: "May 2025 – Present",
       status: "In Progress",
-      image: "pendulum_cover.jpeg",
+      image: "/portfolio-images/pendulum_cover.jpeg",
       description:
         "Self-balancing cart-pendulum with full-state feedback LQR control on Arduino Nano Every. Simulink model tunes gains for 1.2 s settling time with ±10° disturbance rejection at 200 Hz. Features Lagrangian swing-up and smooth state-transition logic.",
       tags: ["Arduino", "Simulink", "LQR", "C++", "Stepper Motor"],
@@ -43,7 +43,7 @@ const portfolioData = {
       category: "Hardware",
       date: "Feb 2026 – May 2026",
       status: "Complete",
-      image: "gearbox_cover.png",
+      image: "/portfolio-images/gearbox_cover.png",
       description:
         "Manual transmission with 2-forward + 1-reverse gears actuated by a single linear dog-clutch. Custom Python script uses differential gear kinematics to iteratively optimize tooth counts and pitch diameters against target gear ratios.",
       tags: ["Fusion 360", "Machining", "Python", "Gear Design"],
@@ -55,7 +55,7 @@ const portfolioData = {
       category: "Hardware",
       date: "Sep 2025 – Dec 2025",
       status: "Complete",
-      image: "quadruped_cover.png",
+      image: "/portfolio-images/quadruped_cover.png",
       description:
         "Single-motor quadruped integrating a dispenser with <3% interval error. Optimized 7-bar linkage kinematics via PVA analysis converts rotary input into a planar walking gait. Noncircular gears extend the duty factor from 60% to >75% for crawl-gait stability.",
       tags: ["Siemens NX", "Kinematics", "Laser Cutting", "Noncircular Gears"],
@@ -87,7 +87,7 @@ const portfolioData = {
         },
         {
           type: "image",
-          src: "quadruped_lasercut_body.jpg",
+          src: "/portfolio-images/quadruped_lasercut.jpeg",
           label: "Fabrication",
           title: "Laser-Cut Profiles & Assembly Process",
           description:
@@ -117,7 +117,7 @@ const portfolioData = {
       category: "Fabrication",
       date: "Dec 2023 – Jul 2024",
       status: "Complete",
-      image: "tesla_cover.png",
+      image: "/portfolio-images/tesla_cover.png",
       description:
         "60 cm Tesla coil generating >30 cm plasma arcs. Derived lumped RLC and coupling coefficients to optimize resonance and eliminate reverse arc-striking. Epoxy-resin dielectric isolation protects secondary winding from corona discharge.",
       tags: ["HV Electronics", "RLC Tuning", "Epoxy Casting", "Copper Winding"],
@@ -129,7 +129,7 @@ const portfolioData = {
       category: "Hardware",
       date: "May 2025 – Aug 2025",
       status: "Complete",
-      image: "FPV_cover.png",
+      image: "/portfolio-images/FPV_cover.png",
       description:
         "15-inch FPV drone with 20 km range, 5 kg payload, and 45-min endurance, designed at AiSeed Tech for DoD requirements. Developed an electro-optical module for fiber-optic signal conversion to bypass RF interference. Resolved a 6-month ESC-motor sync issue by tuning PWM bandwidth.",
       tags: ["FPV", "ESC Tuning", "Fiber Optics", "Drone Design"],
@@ -141,7 +141,7 @@ const portfolioData = {
       category: "Audio",
       date: "Sep 2019 – Aug 2023",
       status: "Complete",
-      image: "stereo_cover.png",
+      image: "/portfolio-images/stereo_cover.png",
       description:
         "11 custom stereo systems spanning active subwoofers, portable Bluetooth soundbars, and a 5-channel home theater array. Iterated diverse amplifier circuit schematics and synthesized enclosure geometries to hit custom frequency response targets.",
       tags: ["Amplifier Design", "Acoustic Enclosures", "Bluetooth", "PCB"],
