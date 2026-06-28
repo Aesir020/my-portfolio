@@ -87,7 +87,7 @@ const portfolioData = {
         },
         {
           type: "image",
-          src: "/portfolio-images/quadruped_lasercut.jpeg",
+          src: "/portfolio-images/quadruped_lasercut_body.jpg",
           label: "Fabrication",
           title: "Laser-Cut Profiles & Assembly Process",
           description:
@@ -704,8 +704,9 @@ function About() {
             {/* Timeline items */}
             <div className="space-y-3">
               {[
-                { period: "2025", role: "Hardware Intern · AiSeed Tech (Taipei)", detail: "FPV drone, fiber-optic RF bypass" },
-                { period: "2024–", role: "Researcher · Multiphase Thermo-fluid Lab", detail: "Nuclear reactor thermal safety margins" },
+                { period: "2026–", role: "Researcher · Engineering System Design Laboratory", detail: "Integrated Physical and Control System Co-Design" },
+                { period: "2025", role: "Hardware Intern · AiSeed Tech (Taipei)", detail: "Fiber-Optic FPV drone, RF-bypass" },
+                { period: "2024–", role: "Researcher · Multiphase Thermo-fluid Lab", detail: "BWR Film Boiling Margin in Natural & Forced Convection" },
                 { period: "2024", role: "Researcher · MNM Laboratory", detail: "Monte Carlo simulation, DFT on ZrH₂" },
               ].map(({ period, role, detail }) => (
                 <div key={role} className="flex gap-4 items-start">
