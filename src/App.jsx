@@ -49,7 +49,7 @@ const portfolioData = {
       tags: ["Fusion 360", "Machining", "Python", "Gear Design"],
       links: { github: "#" },
     },
-{
+    {
       id: "quadruped",
       title: "1-DOF Quadruped Robot with Dispenser",
       category: "Hardware",
@@ -63,11 +63,11 @@ const portfolioData = {
       slides: [
         {
           type: "image",
-          src: "/portfolio-images/quadruped-cad-overview.jpeg",
+          src: "/portfolio-images/quadruped_CAD.png",
           label: "CAD Overview",
-          title: "Full Assembly — Isometric View",
+          title: "Full Assembly",
           description:
-            "The robot is modelled entirely in Siemens NX. The chassis is a single rigid plywood frame; all four legs share one identical 7-bar linkage module, reducing part count and ensuring symmetric gait. The dispenser sits centrally above the body and is mechanically driven off the same crankshaft — no separate actuator needed.",
+            "The robot is modelled entirely in Fusion 360. The chassis is a single rigid plywood frame; all four legs share one identical 7-bar linkage module, reducing part count and ensuring symmetric gait. The dispenser sits centrally above the body and is mechanically driven off the same crankshaft — no separate actuator needed.",
         },
         {
           type: "image",
@@ -449,7 +449,7 @@ function Hero() {
 
       <div className="relative max-w-4xl mx-auto px-6 pt-24 pb-16 text-center">
         <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-gray-700 bg-gray-900 text-gray-400 text-xs font-mono tracking-widest uppercase">
-          Maker Portfolio · {new Date().getFullYear()}
+          Maker Portfolio · {new Date().getFullYear()} (Under Construction...)
         </div>
 
         <h1 className="text-5xl md:text-7xl font-black text-white leading-none tracking-tight mb-4">
