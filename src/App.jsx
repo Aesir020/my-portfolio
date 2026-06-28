@@ -6,7 +6,7 @@ const portfolioData = {
   name: "Alex Chen",
   tagline: "I build things that move, think, and spark.",
   subTagline: "Mechanical Engineering @ UIUC · Hardware · Controls · Fabrication",
-  bio: "I'm a Mechanical Engineering student at the University of Illinois Urbana-Champaign (GPA 3.98) with a minor in ECE. I design and build physical systems from scratch — gearboxes, robots, Tesla coils, audio systems — bridging the gap between CAD models and working machines.",
+  bio: "I'm a Mechanical Engineering student at the University of Illinois Urbana-Champaign with a minor in ECE. I design and build physical systems from scratch — gearboxes, robots, Tesla coils, audio systems — bridging the gap between CAD models and working machines.",
   email: "yuching7@illinois.edu",
   phone: "217-413-8660",
   location: "Urbana-Champaign, IL / Taipei, Taiwan",
@@ -31,7 +31,7 @@ const portfolioData = {
       category: "Controls",
       date: "May 2025 – Present",
       status: "In Progress",
-      image: "/portfolio-images/pendulum_cover.jpeg",
+      image: "pendulum_cover.jpeg",
       description:
         "Self-balancing cart-pendulum with full-state feedback LQR control on Arduino Nano Every. Simulink model tunes gains for 1.2 s settling time with ±10° disturbance rejection at 200 Hz. Features Lagrangian swing-up and smooth state-transition logic.",
       tags: ["Arduino", "Simulink", "LQR", "C++", "Stepper Motor"],
@@ -43,23 +43,73 @@ const portfolioData = {
       category: "Hardware",
       date: "Feb 2026 – May 2026",
       status: "Complete",
-      image: "/portfolio-images/13.jpeg",
+      image: "gearbox_cover.png",
       description:
         "Manual transmission with 2-forward + 1-reverse gears actuated by a single linear dog-clutch. Custom Python script uses differential gear kinematics to iteratively optimize tooth counts and pitch diameters against target gear ratios.",
       tags: ["Fusion 360", "Machining", "Python", "Gear Design"],
       links: { github: "#" },
     },
-    {
+{
       id: "quadruped",
       title: "1-DOF Quadruped Robot with Dispenser",
       category: "Hardware",
       date: "Sep 2025 – Dec 2025",
       status: "Complete",
-      image: "/portfolio-images/20.jpeg",
+      image: "quadruped_cover.png",
       description:
         "Single-motor quadruped integrating a dispenser with <3% interval error. Optimized 7-bar linkage kinematics via PVA analysis converts rotary input into a planar walking gait. Noncircular gears extend the duty factor from 60% to >75% for crawl-gait stability.",
       tags: ["Siemens NX", "Kinematics", "Laser Cutting", "Noncircular Gears"],
       links: { github: "#", youtube: "#" },
+      slides: [
+        {
+          type: "image",
+          src: "/portfolio-images/quadruped-cad-overview.jpeg",
+          label: "CAD Overview",
+          title: "Full Assembly — Isometric View",
+          description:
+            "The robot is modelled entirely in Siemens NX. The chassis is a single rigid plywood frame; all four legs share one identical 7-bar linkage module, reducing part count and ensuring symmetric gait. The dispenser sits centrally above the body and is mechanically driven off the same crankshaft — no separate actuator needed.",
+        },
+        {
+          type: "image",
+          src: "/portfolio-images/quadruped-exploded.jpeg",
+          label: "Exploded View",
+          title: "Exploded Assembly — Component Breakdown",
+          description:
+            "The exploded view shows the three sub-assemblies: (1) the central drivetrain with bevel gear set and noncircular gear pair, (2) four identical leg modules each consisting of a 7-bar planar linkage with couplers and rockers, and (3) the dispenser drum with its cam-driven release gate. Standardised M3 hardware throughout keeps field maintenance simple.",
+        },
+        {
+          type: "image",
+          src: "/portfolio-images/quadruped-kinematics.jpeg",
+          label: "Kinematics",
+          title: "7-Bar Linkage & Drivetrain Topology",
+          description:
+            "A single DC motor drives all four legs through a bevel gear differential, then through a custom noncircular gear pair. The noncircular gears slow the crank during the stance phase and accelerate it during swing, pushing the duty factor (fraction of cycle with foot on ground) from ~60% to >75%. This threshold is required for a static crawl gait, where three feet remain grounded at all times — guaranteeing both static and dynamic stability without any sensors or active balance control.",
+        },
+        {
+          type: "image",
+          src: "quadruped_lasercut_body.jpg",
+          label: "Fabrication",
+          title: "Laser-Cut Profiles & Assembly Process",
+          description:
+            "All structural members are cut from 4 mm and 6 mm birch plywood on a CO2 laser cutter. Finger-joint interlocks eliminate the need for adhesive on the main chassis. Load-bearing pivots and gear hubs are 3D-printed in PETG for tight dimensional tolerance around press-fit bearings. The layered build sequence — laser cut flat, print joints, assemble — allowed full assembly in under two hours per iteration.",
+        },
+        {
+          type: "image",
+          src: "/portfolio-images/quadruped-assembled.jpeg",
+          label: "Physical Build",
+          title: "Completed Physical Assembly",
+          description:
+            "The finished robot weighs 380 g and fits within a 220 x 180 mm footprint. Passive compliant feet (soft TPU pads) dampen ground impact and improve traction on uneven surfaces. The dispenser achieves less than 3% timing error across 50 consecutive cycles, validated by high-speed camera frame counting against the motor encoder signal.",
+        },
+        {
+          type: "video",
+          src: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
+          label: "Performance",
+          title: "Walking Demonstration",
+          description:
+            "The robot demonstrates a stable crawl gait at 0.4 body-lengths per second. Key highlights: duty factor greater than 75% maintained at all tested speeds; zero tip-overs across 30 continuous minutes of operation; dispenser interval error less than 3% at nominal gait speed. The noncircular gears visibly modulate crank speed — faster during leg swing, slower during stance — producing the smooth, ground-hugging foot trajectory shown in the video.",
+        },
+      ],
     },
     {
       id: "tesla-coil",
@@ -67,7 +117,7 @@ const portfolioData = {
       category: "Fabrication",
       date: "Dec 2023 – Jul 2024",
       status: "Complete",
-      image: "/portfolio-images/tesla_cover.png",
+      image: "tesla_cover.png",
       description:
         "60 cm Tesla coil generating >30 cm plasma arcs. Derived lumped RLC and coupling coefficients to optimize resonance and eliminate reverse arc-striking. Epoxy-resin dielectric isolation protects secondary winding from corona discharge.",
       tags: ["HV Electronics", "RLC Tuning", "Epoxy Casting", "Copper Winding"],
@@ -79,7 +129,7 @@ const portfolioData = {
       category: "Hardware",
       date: "May 2025 – Aug 2025",
       status: "Complete",
-      image: "/portfolio-images/FPV_cover.png",
+      image: "FPV_cover.png",
       description:
         "15-inch FPV drone with 20 km range, 5 kg payload, and 45-min endurance, designed at AiSeed Tech for DoD requirements. Developed an electro-optical module for fiber-optic signal conversion to bypass RF interference. Resolved a 6-month ESC-motor sync issue by tuning PWM bandwidth.",
       tags: ["FPV", "ESC Tuning", "Fiber Optics", "Drone Design"],
@@ -91,7 +141,7 @@ const portfolioData = {
       category: "Audio",
       date: "Sep 2019 – Aug 2023",
       status: "Complete",
-      image: "./portfolio-images/31.jpeg",
+      image: "stereo_cover.png",
       description:
         "11 custom stereo systems spanning active subwoofers, portable Bluetooth soundbars, and a 5-channel home theater array. Iterated diverse amplifier circuit schematics and synthesized enclosure geometries to hit custom frequency response targets.",
       tags: ["Amplifier Design", "Acoustic Enclosures", "Bluetooth", "PCB"],
@@ -117,7 +167,7 @@ const portfolioData = {
       { stat: "3.98", label: "GPA @ UIUC" },
       { stat: "11+", label: "Custom Builds" },
       { stat: "6", label: "Years Making" },
-      { stat: "2", label: "Research Labs" },
+      { stat: "3", label: "Research Labs" },
     ],
     education: "B.S. Mechanical Engineering, Minor in ECE · University of Illinois Urbana-Champaign · Expected May 2027 · Dean's List, James Scholar",
   },
@@ -187,6 +237,161 @@ function SocialIcon({ icon }) {
   if (icon === "youtube") return <YoutubeIcon />;
   if (icon === "linkedin") return <LinkedinIcon />;
   return <MailIcon />;
+}
+
+// ── Project Deep-Dive Modal ─────────────────────────────────
+function ProjectModal({ project, onClose }) {
+  const [active, setActive] = useState(0);
+  const slide = project.slides[active];
+
+  // Close on Escape key
+  useEffect(() => {
+    const handler = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onClose]);
+
+  // Lock body scroll while open
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
+  const prev = () => setActive((a) => (a - 1 + project.slides.length) % project.slides.length);
+  const next = () => setActive((a) => (a + 1) % project.slides.length);
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-950/90 backdrop-blur-sm"
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
+      <div className="relative w-full max-w-5xl bg-gray-900 border border-gray-700 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
+
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-800 shrink-0">
+          <div>
+            <p className="text-orange-400 font-mono text-xs uppercase tracking-widest mb-0.5">{project.category}</p>
+            <h2 className="text-white font-bold text-lg leading-tight">{project.title}</h2>
+          </div>
+          <button
+            onClick={onClose}
+            className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-700 hover:border-gray-500 text-gray-400 hover:text-white transition-colors"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+              <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Slide tab strip */}
+        <div className="flex gap-1 px-6 pt-4 pb-0 shrink-0 overflow-x-auto">
+          {project.slides.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`shrink-0 px-3 py-1.5 rounded-t-lg text-xs font-mono transition-colors border-b-2 ${
+                i === active
+                  ? "text-orange-400 border-orange-400 bg-gray-800"
+                  : "text-gray-500 border-transparent hover:text-gray-300"
+              }`}
+            >
+              {s.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Main content: image left, description right */}
+        <div className="flex flex-col md:flex-row flex-1 min-h-0 overflow-hidden">
+
+          {/* Media panel */}
+          <div className="relative md:w-[58%] bg-gray-950 flex items-center justify-center min-h-[220px]">
+            {slide.type === "video" ? (
+              <iframe
+                key={active}
+                src={slide.src}
+                className="w-full h-full min-h-[300px]"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <img
+                key={active}
+                src={slide.src}
+                alt={slide.title}
+                className="w-full h-full object-contain max-h-[55vh]"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.nextSibling.style.display = "flex";
+                }}
+              />
+            )}
+            {/* Fallback placeholder */}
+            <div className="hidden w-full h-full min-h-[300px] items-center justify-center flex-col gap-3 text-gray-700">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-14 h-14">
+                <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              <p className="text-xs font-mono">Add image to public/portfolio-images/</p>
+            </div>
+
+            {/* Prev / Next arrows */}
+            {project.slides.length > 1 && (
+              <>
+                <button
+                  onClick={prev}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-gray-900/80 border border-gray-700 hover:border-orange-500/50 text-gray-400 hover:text-white transition-all"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><polyline points="15 18 9 12 15 6" /></svg>
+                </button>
+                <button
+                  onClick={next}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-gray-900/80 border border-gray-700 hover:border-orange-500/50 text-gray-400 hover:text-white transition-all"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><polyline points="9 18 15 12 9 6" /></svg>
+                </button>
+              </>
+            )}
+
+            {/* Slide counter */}
+            <div className="absolute bottom-3 right-3 text-xs font-mono text-gray-600 bg-gray-900/70 px-2 py-1 rounded">
+              {active + 1} / {project.slides.length}
+            </div>
+          </div>
+
+          {/* Description panel */}
+          <div className="md:w-[42%] p-6 overflow-y-auto flex flex-col gap-4 border-t md:border-t-0 md:border-l border-gray-800">
+            <h3 className="text-white font-bold text-base leading-snug">{slide.title}</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">{slide.description}</p>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-1.5 pt-2">
+              {project.tags.map((t) => (
+                <span key={t} className="text-xs bg-gray-800 text-gray-400 px-2.5 py-1 rounded-full font-mono">{t}</span>
+              ))}
+            </div>
+
+            {/* External links */}
+            {Object.keys(project.links).length > 0 && (
+              <div className="flex gap-4 pt-2 mt-auto border-t border-gray-800">
+                {project.links.github && (
+                  <a href={project.links.github} target="_blank" rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors">
+                    <GithubIcon /> GitHub
+                  </a>
+                )}
+                {project.links.youtube && (
+                  <a href={project.links.youtube} target="_blank" rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-red-400 transition-colors">
+                    <YoutubeIcon /> YouTube
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 // ── Nav ─────────────────────────────────────────────────────
@@ -290,8 +495,8 @@ const STATUS_COLORS = {
   "In Progress": "bg-orange-500/10 text-orange-400 border-orange-500/30",
 };
 
-function ProjectCard({ project }) {
-  const { title, category, date, status, image, description, tags, links } = project;
+function ProjectCard({ project, onExpand }) {
+  const { title, category, date, status, image, description, tags, links, slides } = project;
   return (
     <div className="group bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-orange-500/40 transition-all duration-300 flex flex-col">
       <div className="relative overflow-hidden h-48 bg-gray-800">
@@ -314,6 +519,13 @@ function ProjectCard({ project }) {
         <span className="absolute top-3 left-3 text-xs font-mono bg-gray-950/80 backdrop-blur text-orange-400 px-2 py-1 rounded border border-orange-500/30">
           {category}
         </span>
+        {/* Deep-dive indicator */}
+        {slides && slides.length > 0 && (
+          <span className="absolute top-3 right-3 text-xs font-mono bg-orange-500/20 backdrop-blur text-orange-300 px-2 py-1 rounded border border-orange-500/40 flex items-center gap-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            {slides.length} slides
+          </span>
+        )}
       </div>
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-2 mb-2">
@@ -329,38 +541,50 @@ function ProjectCard({ project }) {
             <span key={t} className="text-xs bg-gray-800 text-gray-400 px-2 py-0.5 rounded font-mono">{t}</span>
           ))}
         </div>
-        {Object.keys(links).length > 0 && (
-          <div className="flex gap-3 pt-3 border-t border-gray-800">
-            {links.github && (
-              <a href={links.github} target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors">
-                <GithubIcon /> GitHub
-              </a>
-            )}
-            {links.youtube && (
-              <a href={links.youtube} target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-red-400 transition-colors">
-                <YoutubeIcon /> Demo
-              </a>
-            )}
-            {links.live && (
-              <a href={links.live} target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors">
-                <ExternalLinkIcon /> Live
-              </a>
-            )}
-          </div>
-        )}
+        <div className="flex items-center gap-3 pt-3 border-t border-gray-800">
+          {/* Deep-dive expand button */}
+          {slides && slides.length > 0 && (
+            <button
+              onClick={() => onExpand(project)}
+              className="inline-flex items-center gap-1.5 text-xs bg-orange-500/10 hover:bg-orange-500/20 text-orange-400 hover:text-orange-300 border border-orange-500/30 hover:border-orange-500/60 px-3 py-1.5 rounded-lg transition-all font-medium"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+              </svg>
+              Explore Project
+            </button>
+          )}
+          {links.github && (
+            <a href={links.github} target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors">
+              <GithubIcon /> GitHub
+            </a>
+          )}
+          {links.youtube && (
+            <a href={links.youtube} target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-red-400 transition-colors">
+              <YoutubeIcon /> Demo
+            </a>
+          )}
+          {links.live && (
+            <a href={links.live} target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors">
+              <ExternalLinkIcon /> Live
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
 function Projects() {
-  const [active, setActive] = useState("All");
-  const filtered = active === "All"
+  const [activeTab, setActiveTab] = useState("All");
+  const [modalProject, setModalProject] = useState(null);
+
+  const filtered = activeTab === "All"
     ? portfolioData.projects
-    : portfolioData.projects.filter((p) => p.category === active);
+    : portfolioData.projects.filter((p) => p.category === activeTab);
 
   return (
     <section id="projects" className="py-24 bg-gray-950">
@@ -375,9 +599,9 @@ function Projects() {
           {PROJECT_CATEGORIES.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActive(cat)}
+              onClick={() => setActiveTab(cat)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                active === cat
+                activeTab === cat
                   ? "bg-orange-500 text-white"
                   : "bg-gray-900 border border-gray-800 text-gray-400 hover:border-gray-600 hover:text-white"
               }`}
@@ -393,9 +617,16 @@ function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((p) => <ProjectCard key={p.id} project={p} />)}
+          {filtered.map((p) => (
+            <ProjectCard key={p.id} project={p} onExpand={setModalProject} />
+          ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {modalProject && (
+        <ProjectModal project={modalProject} onClose={() => setModalProject(null)} />
+      )}
     </section>
   );
 }
